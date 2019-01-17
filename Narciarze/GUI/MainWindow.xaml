@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GUI"
+        xmlns:local="clr-namespace:HospitalClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="417" Width="534">
+
+    <DockPanel>
+        <StackPanel HorizontalAlignment="Left" Width="400">
+            <TextBox Text="{Binding ElementsList.Content, UpdateSourceTrigger=PropertyChanged}" Height="385" RenderTransformOrigin="0.494,0.455" Margin="10,0"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Width="110">
+            <Button x:Name="skocznieButton" Content="skocznie" Click="skocznieButtonClicked"/>
+            <Button x:Name="zawodnicyButton" Content="zawodnicy" Click="zawodnicyButtonClick"/>
+            <Button x:Name="trenerzyButton" Content="trenerzy" Click="trenerzyButtonClick" />
+
+
+        </StackPanel>
+    </DockPanel>
 </Window>
