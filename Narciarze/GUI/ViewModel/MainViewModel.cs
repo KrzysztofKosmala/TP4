@@ -21,7 +21,7 @@ namespace GUI.ViewModel
         {
             List<string> nazwy = query.getSkocznieNazwy();
             List<string> miasta = query.getSkocznieMiasta();
-            List<string> kPkt = query.getPunktyK();
+            List<string> kPkt = query.getSkocznieK();
 
             ElementsList.Content = "";
 
@@ -34,7 +34,7 @@ namespace GUI.ViewModel
 
         public void WczytajDaneZawodnikow()
         {
-            List<string> imiona = query.getZawodnicyimiona();
+            List<string> imiona = query.getZawodnicyImiona();
             List<string> nazwiska = query.getZawodnicyNazwiska();
             List<string> wzrost = query.getZawodnicyWzrost();
 

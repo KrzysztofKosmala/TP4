@@ -9,7 +9,7 @@ namespace Narciarze
 {
     public class Querry
     {
-        AdventureWorksDataContext db = new AdventureWorksDataContext();
+           AdventureWorksDataContext db = new AdventureWorksDataContext();
 
 
         public string getSkoczek(int id)
@@ -22,7 +22,7 @@ namespace Narciarze
 
 
 
-        public List<string> ListaSkoczkow()
+        public  List<string> ListaSkoczkow()
         {
             var skoczkowie = from zawodnicy in db.zawodnicy
                               select zawodnicy.imie;
@@ -32,7 +32,7 @@ namespace Narciarze
             return skoczkowieLista;
         }
 
-        public string getSkocznia(int id)
+        public  string getSkocznia(int id)
         {
             string skocznia = (from skocznie in db.skocznie
                                where skocznie.id_skoczni == id
@@ -40,7 +40,7 @@ namespace Narciarze
             return skocznia;
         }
 
-        public List<string> ListaSkoczni()
+        public  List<string> ListaSkoczni()
         {
             var skoczniee = from skocznie in db.skocznie
                              select skocznie.nazwa;
@@ -50,7 +50,7 @@ namespace Narciarze
             return skocznieLista;
         }
 
-        public string getTrener(int id)
+        public  string getTrener(int id)
         {
             string trener = (from trenerzy in db.trenerzy
                                where trenerzy.id_trenera == id
@@ -58,7 +58,7 @@ namespace Narciarze
             return trener;
         }
 
-        public List<string> ListaTrenerow()
+        public  List<string> ListaTrenerow()
         {
             
             var trener = from trenerzy in db.trenerzy
@@ -69,7 +69,7 @@ namespace Narciarze
             return trenerzyLista;
         }
 
-        public List<string> getSkocznieNazwy()
+        public  List<string> getSkocznieNazwy()
         {
 
             var skocznia = from skocznie in db.skocznie
@@ -80,7 +80,7 @@ namespace Narciarze
             return skocznieLista;
         }
 
-        public List<string> getSkocznieK()
+        public  List<string> getSkocznieK()
         {
 
             var skocznia = from skocznie in db.skocznie
@@ -91,7 +91,7 @@ namespace Narciarze
             return skocznieLista;
         }
 
-        public List<string> getSkocznieMiasta()
+        public  List<string> getSkocznieMiasta()
         {
 
             var skocznia = from skocznie in db.skocznie
@@ -102,7 +102,7 @@ namespace Narciarze
             return skocznieLista;
         }
 
-        public List<string> getZawodnicyImiona()
+        public  List<string> getZawodnicyImiona()
         {
 
             var zawodnik = from zawodnicy in db.zawodnicy
@@ -113,7 +113,7 @@ namespace Narciarze
             return zawodnicyLista;
         }
 
-        public List<string> getZawodnicyNazwiska()
+        public  List<string> getZawodnicyNazwiska()
         {
 
             var zawodnik = from zawodnicy in db.zawodnicy
@@ -124,7 +124,7 @@ namespace Narciarze
             return zawodnicyLista;
         }
 
-        public List<string> getZawodnicyWzrost()
+        public  List<string> getZawodnicyWzrost()
         {
 
             var zawodnik = from zawodnicy in db.zawodnicy
@@ -135,7 +135,7 @@ namespace Narciarze
             return zawodnicyLista;
         }
 
-        public List<string> getTrenerzyImiona()
+        public   List<string> getTrenerzyImiona()
         {
 
             var trener = from trenerzy in db.trenerzy
@@ -146,7 +146,7 @@ namespace Narciarze
             return trenerzyLista;
         }
 
-        public List<string> getTrenerzyNazwiska()
+        public  List<string> getTrenerzyNazwiska()
         {
 
             var trener = from trenerzy in db.trenerzy
