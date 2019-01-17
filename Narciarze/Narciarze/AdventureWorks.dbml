@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\SEKWAD\DESKTOP\STUDIA\ZSBD\NARCIARZE.MDF" Class="AdventureWorksDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=C:\USERS\SEKWAD\DESKTOP\STUDIA\ZSBD\NARCIARZE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Narciarze.Properties.Settings" SettingsPropertyName="C__USERS_SEKWAD_DESKTOP_STUDIA_ZSBD_NARCIARZE_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.kraje" Member="kraje">
+    <Type Name="kraje">
+      <Column Name="id_kraju" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kraj" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Association Name="kraje_skocznie" Member="skocznie" ThisKey="id_kraju" OtherKey="id_kraju" Type="skocznie" />
+      <Association Name="kraje_trenerzy" Member="trenerzy" ThisKey="id_kraju" OtherKey="id_kraju" Type="trenerzy" />
+      <Association Name="kraje_zawodnicy" Member="zawodnicy" ThisKey="id_kraju" OtherKey="id_kraju" Type="zawodnicy" />
+    </Type>
+  </Table>
+  <Table Name="dbo.skocznie" Member="skocznie">
+    <Type Name="skocznie">
+      <Column Name="id_skoczni" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="miasto" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="id_kraju" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nazwa" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="k" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sedz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="skocznie_zawody" Member="zawody" ThisKey="id_skoczni" OtherKey="id_skoczni" Type="zawody" />
+      <Association Name="kraje_skocznie" Member="kraje" ThisKey="id_kraju" OtherKey="id_kraju" Type="kraje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trenerzy" Member="trenerzy">
+    <Type Name="trenerzy">
+      <Column Name="id_trenera" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_kraju" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="imie_t" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="nazwisko_t" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="data_ur_t" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="kraje_trenerzy" Member="kraje" ThisKey="id_kraju" OtherKey="id_kraju" Type="kraje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.uczestnictwa_w_zawodach" Member="uczestnictwa_w_zawodach">
+    <Type Name="uczestnictwa_w_zawodach">
+      <Column Name="id_zawodow" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_skoczka" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="zawodnicy_uczestnictwa_w_zawodach" Member="zawodnicy" ThisKey="id_skoczka" OtherKey="id_skoczka" Type="zawodnicy" IsForeignKey="true" />
+      <Association Name="zawody_uczestnictwa_w_zawodach" Member="zawody" ThisKey="id_zawodow" OtherKey="id_zawodow" Type="zawody" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zawodnicy" Member="zawodnicy">
+    <Type Name="zawodnicy">
+      <Column Name="id_skoczka" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imie" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="nazwisko" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="id_kraju" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data_ur" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="wzrost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="waga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="zawodnicy_uczestnictwa_w_zawodach" Member="uczestnictwa_w_zawodach" ThisKey="id_skoczka" OtherKey="id_skoczka" Type="uczestnictwa_w_zawodach" />
+      <Association Name="kraje_zawodnicy" Member="kraje" ThisKey="id_kraju" OtherKey="id_kraju" Type="kraje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.zawody" Member="zawody">
+    <Type Name="zawody">
+      <Column Name="id_zawodow" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_skoczni" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DATA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="zawody_uczestnictwa_w_zawodach" Member="uczestnictwa_w_zawodach" ThisKey="id_zawodow" OtherKey="id_zawodow" Type="uczestnictwa_w_zawodach" />
+      <Association Name="skocznie_zawody" Member="skocznie" ThisKey="id_skoczni" OtherKey="id_skoczni" Type="skocznie" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
