@@ -24,6 +24,7 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = mainView;
         }
 
         private void skocznieButtonClicked(object sender, RoutedEventArgs e)
