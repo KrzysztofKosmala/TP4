@@ -77,55 +77,115 @@ namespace Narciarze.Tests
         [TestMethod()]
         public void ListaTrenerowTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Alexander" };
+            result = query.ListaTrenerow();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getSkocznieNazwyTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Wielka Krokiew" };
+            result = query.ListaSkoczni();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
-        [TestMethod()]
-        public void getSkocznieKTest()
-        {
-            Assert.Fail();
-        }
+        
 
         [TestMethod()]
         public void getSkocznieMiastaTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Zakopane" };
+            result = query.getSkocznieMiasta();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getZawodnicyImionaTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Marcin" };
+            result = query.getZawodnicyImiona();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getZawodnicyNazwiskaTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "BACHLEDA" };
+            result = query.getZawodnicyImiona();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getZawodnicyWzrostTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "166" };
+            result = query.getZawodnicyWzrost();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getTrenerzyImionaTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Alexander" };
+            result = query.getTrenerzyImiona();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
 
         [TestMethod()]
         public void getTrenerzyNazwiskaTest()
         {
-            Assert.Fail();
+            Querry query = new Querry();
+
+            List<string> expected = new List<string>();
+            List<string> result = new List<string>();
+
+            expected = new List<string> { "Pointer" };
+            result = query.getTrenerzyNazwiska();
+
+            Assert.AreEqual(expected[0], result[0]);
         }
     }
 }
