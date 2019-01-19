@@ -141,7 +141,7 @@ namespace Narciarze.Tests
             List<string> result = new List<string>();
 
             expected = new List<string> { "BACHLEDA" };
-            result = query.getZawodnicyImiona();
+            result = query.getZawodnicyNazwiska();
 
             Assert.AreEqual(expected[0], result[0]);
         }
@@ -182,7 +182,7 @@ namespace Narciarze.Tests
             List<string> expected = new List<string>();
             List<string> result = new List<string>();
 
-            expected = new List<string> { "Pointer" };
+            expected = new List<string> { "Pointner" };
             result = query.getTrenerzyNazwiska();
 
             Assert.AreEqual(expected[0], result[0]);

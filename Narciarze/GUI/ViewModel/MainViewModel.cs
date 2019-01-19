@@ -17,46 +17,53 @@ namespace GUI.ViewModel
             ElementsList = new ElementsListViewModel();
         }
 
-        public void WrzytajDaneSkoczni()
+        public List<string> WrzytajDaneSkoczni()
         {
             List<string> nazwy = query.getSkocznieNazwy();
             List<string> miasta = query.getSkocznieMiasta();
             List<string> kPkt = query.getSkocznieK();
+            List<string> skocznie = new List<string>();
 
-            ElementsList.Content = "";
 
             for (int i = 0; i < nazwy.Count; ++i)
             {
-                ElementsList.Content += nazwy[i] + " " + miasta[i] + " pkt K "
-                                     + kPkt[i] + Environment.NewLine;
+                skocznie.Add(nazwy[i] + " Miasto : " + miasta[i] + " Punkt K: " + kPkt[i]);
             }
+            return skocznie;
         }
 
-        public void WczytajDaneZawodnikow()
+        public List<string> WczytajDaneZawodnikow()
         {
             List<string> imiona = query.getZawodnicyImiona();
             List<string> nazwiska = query.getZawodnicyNazwiska();
             List<string> wzrost = query.getZawodnicyWzrost();
 
-            ElementsList.Content = "";
+            List<string> zawodnicy = new List<string>();
 
             for (int i = 0; i < imiona.Count; ++i)
             {
-                ElementsList.Content += imiona[i] + " " + nazwiska[i] + " wzrost: "
-                                     + wzrost[i] + Environment.NewLine;
+                zawodnicy.Add(imiona[i] + " " + nazwiska[i] + " Wzrost : " + wzrost[i]);
             }
+            return zawodnicy;
         }
-        public void WczytajDaneTrenerow()
+        public List<string> WczytajDaneTrenerow()
         {
             List<string> imiona = query.getTrenerzyImiona();
             List<string> nazwiska = query.getTrenerzyNazwiska();
+            List<string> trenerzy = new List<string>();
 
             ElementsList.Content = "";
 
             for (int i = 0; i < imiona.Count; ++i)
             {
-                ElementsList.Content += imiona[i] + " "+nazwiska[i] + Environment.NewLine;
+                trenerzy.Add(imiona[i] + " " + nazwiska[i]);
             }
+            return trenerzy;
+        }
+
+        public zawodnicy pobierzIdZawodnika(int id)
+        { 
+            return query.getSkoczek(id);
         }
 
        

@@ -12,11 +12,11 @@ namespace Narciarze
            AdventureWorksDataContext db = new AdventureWorksDataContext();
 
 
-        public string getSkoczek(int id)
+        public zawodnicy getSkoczek(int id)
         {
-            string skoczek = (from zawodnicy in db.zawodnicy
+            zawodnicy skoczek = (from zawodnicy in db.zawodnicy
                               where zawodnicy.id_skoczka == id
-                              select zawodnicy.imie).First().ToString();
+                              select zawodnicy).Single();
             return skoczek;
         }
 
@@ -36,7 +36,7 @@ namespace Narciarze
         {
             string skocznia = (from skocznie in db.skocznie
                                where skocznie.id_skoczni == id
-                               select skocznie.nazwa).First().ToString();
+                               select skocznie.nazwa).Single().ToString();
             return skocznia;
         }
 
@@ -54,7 +54,7 @@ namespace Narciarze
         {
             string trener = (from trenerzy in db.trenerzy
                                where trenerzy.id_trenera == id
-                               select trenerzy).First().ToString();
+                               select trenerzy.imie_t).Single().ToString();
             return trener;
         }
 
@@ -155,6 +155,14 @@ namespace Narciarze
             List<string> trenerzyLista = trener.ToList();
 
             return trenerzyLista;
+        }
+
+        public List<zawodnicy> getZawodnicyList()
+        {
+            var zawodnik = from zawodnicy in db.zawodnicy
+                           select zawodnicy;
+            List<zawodnicy> zawodnicyL = zawodnik.ToList();
+            return zawodnicyL;
         }
 
     }

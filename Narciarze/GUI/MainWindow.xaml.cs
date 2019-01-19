@@ -29,17 +29,32 @@ namespace GUI
 
         private void skocznieButtonClicked(object sender, RoutedEventArgs e)
         {
-            mainView.WrzytajDaneSkoczni();
+            box.Items.Clear();
+            var list = mainView.WrzytajDaneSkoczni();
+            for (int i = 0; i < list.Count; i++)
+            {
+                box.Items.Add(list[i]);
+            }
         }
 
         private void zawodnicyButtonClick(object sender, RoutedEventArgs e)
         {
-            mainView.WczytajDaneZawodnikow();
+            box.Items.Clear();
+            var list = mainView.WczytajDaneZawodnikow();
+            for(int i=0; i<list.Count; i++)
+            {
+                box.Items.Add(list[i]);
+            }
         }
 
         private void trenerzyButtonClick(object sender, RoutedEventArgs e)
         {
-            mainView.WczytajDaneTrenerow();
+            box.Items.Clear();
+            var list = mainView.WczytajDaneTrenerow();
+            for (int i = 0; i < list.Count; i++)
+            {
+                box.Items.Add(list[i]);
+            }
         }
 
      
