@@ -3,10 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GUI"
+        xmlns:local="clr-namespace:Narciarze;assembly=Narciarze"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="417" Width="534">
+
+
+
     <Grid>
-        
+        <ListBox Name="box" Margin="10,10,200,10.2" Width="318"/>
+
+
+        <Button x:Name="skocznieButton" Content="skocznie" Click="skocznieButtonClicked" Height="60" Margin="333,164,10,163.2" />
+        <Button x:Name="zawodnicyButton" Content="zawodnicy" Click="zawodnicyButtonClick" Height="60" Margin="333,60,10,267.2" />
+        <Button x:Name="trenerzyButton" Content="trenerzy" Click="trenerzyButtonClick" Height="60" Margin="333,267,10,60.2"
+                    />
     </Grid>
+
+
+
 </Window>
